@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Library Manager</title>
+</head>
+<body>
+<div align="center">
+    <h1>Library List</h1>
+    <a href="/librarys/create">Create New Library</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Library ID</th>
+                <th>name</th>
+				<th>All Books in Library</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="library : ${listLibrary}">
+                <td th:text="${library.id}">Library ID</td>
+                <td th:text="${library.name}">Name</td>
+				<td><a th:href="@{/books}">Books in this Library</a></td> 
+                <td>
+                    <a th:href="@{librarys/update/{id}(id=${library.id})}">Edit</a>
+                   
+                    <a th:href="@{librarys/delete/{id}(id=${library.id})}">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br/>
+
+    	<a href="/login">Quit</a>
+
+</div>   
+</body>
+</html>
