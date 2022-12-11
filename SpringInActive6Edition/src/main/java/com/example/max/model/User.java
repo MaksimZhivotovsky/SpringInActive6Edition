@@ -5,11 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,19 +15,14 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "books")
-public class Book {
+@Table(name = "users")
+public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "book_id")
 	private Long id;
-	@Column(name = "title")
-	private String title;
-	@Column(name = "author")
-	private String author;
-	@ManyToOne
-	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-	@JsonBackReference
-	private Library library;
+	@Column(name = "username", unique = true)
+	private String username;
+	@Column(name = "password", unique = true)
+	private String password;
 }
