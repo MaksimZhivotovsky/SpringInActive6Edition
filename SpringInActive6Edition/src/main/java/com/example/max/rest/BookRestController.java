@@ -23,10 +23,10 @@ public class BookRestController {
 
 	private final BookService bookService;
 	
-	@GetMapping
-	public List<Book> getBooks() {
-		return bookService.getBooks();
-	}
+//	@GetMapping
+//	public List<Book> getBooks() {
+//		return bookService.getBooks();
+//	}
 	
 	@PostMapping
 	public Book saveBook(@RequestBody Book book) {

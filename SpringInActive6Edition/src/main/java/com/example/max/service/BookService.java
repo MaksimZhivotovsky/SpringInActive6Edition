@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.max.model.Book;
+import com.example.max.model.Library;
 import com.example.max.repository.BookRepository;
 
 import lombok.RequiredArgsConstructor;
